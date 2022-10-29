@@ -14,7 +14,6 @@
   </head>
 
   <body>
-
     <%# Reference: https://human-se.github.io/rails-demos-n-deets-2020/demo-bootstrap-navbar/ %>
   
     <div id="site-container" class="flexbox vertical stretch flex-1">
@@ -42,6 +41,11 @@
               <li class="nav-item">
                 <%= link_to "Help", "/help", class: "nav-link", method: :get %>
               </li>
+
+              <li class="nav-item active">
+                <%= link_to "Login", "/login", class: "nav-link", method: :get %>
+              </li>
+
             </ul>
           </div>
           
