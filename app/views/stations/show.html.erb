@@ -5,12 +5,10 @@
 
   <div class="field">
     <% if @station.docked_bikes.count > 0 %>
-      <%= form_tag(home_path, method: "get") do %>
-        <%= render(partial: "stations/bike", collection: @station.docked_bikes, as: :bike) %>
+      <%= form_with url: checkout_path, method: :get do |f| %>
+        <%= render(partial: "stations/bike", collection: @station.docked_bikes, as: :bike, locals: {form: f}) %>
+        <%= f.submit "Rent this bike" %>
       <% end %>
-      <%= render(partial: "pay/stripe/checkout_button", locals: {
-            session: @checkout_session, title: "Checkout"})
-      %>
     <% else %>
       <div>No bikes available! Sorry!</div>
     <% end %>

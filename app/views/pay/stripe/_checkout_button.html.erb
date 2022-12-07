@@ -10,7 +10,7 @@
     const checkoutButton = document.getElementById("checkout-<%= session.id %>");
     checkoutButton.addEventListener('click', function () {
       Stripe("<%= Pay::Stripe.public_key %>").redirectToCheckout({
-        sessionId: '<%= session.id %>'
+        sessionId: '<%= session.id %>',
       }).then(function (result) {
         if (result.error) {
             document.getElementById("error-for-#{session.id}").innerText = result.error.message;

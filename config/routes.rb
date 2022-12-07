@@ -3,9 +3,6 @@ Rails.application.routes.draw do
   devise_for :users, module: "users"
   resources :stations
 
-  #pls delete once webpage is set
-  match 'about', to: 'about#index', via: 'get'
-
   get 'home'    => 'home#index'
   get 'about'    => 'about#index'
   get 'help'    => 'help#index'
@@ -14,4 +11,6 @@ Rails.application.routes.draw do
   get 'memberships'  => 'memberships#index'
 
   get 'billing' => 'billing#show'
+  get 'checkout/success' => 'checkout#success'
+  get 'checkout/:id' => 'checkout#show', as: "checkout"
 end

@@ -1,0 +1,2 @@
+<h1><%= @bike_id %></h1>
+<%= render(partial: "pay/stripe/checkout_button", locals: { session: @checkout_session, title: "Checkout"})%>
