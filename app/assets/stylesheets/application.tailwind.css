@@ -1,16 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-
-/*
-
-
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './app/helpers/**/*.rb',
+    './app/javascript/**/*.js',
+    './app/views/**/*',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
 }
 
-*/

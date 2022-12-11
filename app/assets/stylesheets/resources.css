@@ -26,17 +26,17 @@ div { box-sizing: border-box; }
 }
 
 .accordion-header {
-  background-color: #f1f4f7;
+  background-color: var(--main-text);
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: white !important;
-  color: rgb(155, 206, 169)!important;
+  background-color: var(--main-text) !important;
+  color: var(--theme) !important;
 }
 
 .accordion-button:focus {
-  border-color: white;
-  background-color: white !important;
+  border-color: var(--main-text);
+  background-color: var(--main-text) !important;
 }
 
 .accordian-item{

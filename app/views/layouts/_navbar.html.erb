@@ -1,0 +1,76 @@
+<nav>
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <!-- Mobile menu button-->
+        <button id="navbarToggler" type="button" class="inline-flex items-center justify-center rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-expanded="true" aria-controls="mobile-menu" data-bs-target="#mobile-menu" data-bs-toggle="collapse">
+          <span class="sr-only">Open main menu</span>
+          <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#F4F4F5" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- MAIN NAV BAR -->
+      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="flex flex-shrink-0 items-center">
+          <%= image_tag('Hydrabikes.png', alt: 'ValetBike', class: "block h-16 w-auto") %>
+        </div>
+        <div class="hidden sm:block sm:ml-6">
+          <div class="flex h-16">
+            <div class="flex align-middle items-center justify-center space-x-3">
+              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              <% nav_link_class = "nav-link hover:text-white px-3 py-2 rounded-md text-sm font-medium" %> 
+              <%= link_to "HOME", home_path, class: nav_link_class %>
+              <%= link_to "ABOUT", about_path, class: nav_link_class %>
+              <%= link_to "STATIONS", stations_url, class: nav_link_class%>
+              <%= link_to "RESOURCES", help_url, class: nav_link_class %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        <!-- Profile dropdown -->
+        <% if user_signed_in? %>
+          <div class="dropdown relative">
+            <a class="flex items-center hidden-arrow rounded-full focus:ring focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" href="#" id="dropdownMenuButton2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://mdbootstrap.com/img/new/avatars/2.jpg" class="rounded-full h-8 w-8" alt="" loading="lazy" />
+            </a>
+            <ul class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 px-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0" aria-labelledby="dropdownMenuButton2">
+              <li>
+                <%= link_to "Profile", home_path, class: "nav-link dropdown-item text-sm py-2 rounded-md font-normal block w-full whitespace-nowrap" %>
+              </li>
+              <li>
+                <%= link_to "Sign out", destroy_user_session_path, class: "nav-link dropdown-item text-sm py-2 rounded-md font-normal block w-full whitespace-nowrap", data: { "turbo-method": :delete } %>
+              </li>
+            </ul>
+          </div>
+        <% else %>
+          <div class="hidden sm:block">
+            <div class="flex space-x-3">
+          <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <%= link_to "LOG IN", new_user_session_path, class: nav_link_class %>
+            <%= link_to "SIGN UP", new_user_registration_path, class: nav_link_class %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="sm:hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3" aria-labelledby="navbarToggler">
+        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+        <% nav_link_mobile_class = "nav-link block px-3 rounded-md text-base font-medium" %>
+        <%= link_to "Home", home_path, class: nav_link_mobile_class %>
+        <%= link_to "About", about_path, class: nav_link_mobile_class %>
+        <%= link_to "Stations", stations_path, class: nav_link_mobile_class %>
+        <%= link_to "Resources", help_path, class: nav_link_mobile_class %>
+        <% if not user_signed_in? %>
+          <hr style="border: 1px solid var(--theme);">
+          <%= link_to "Log in", new_user_session_path, class: nav_link_mobile_class %>
+          <%= link_to "Sign up", new_user_registration_path, class: nav_link_mobile_class %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -29,59 +29,9 @@
   </head>
 
   <body>
-   <!--<bootstrap for navigation bar; lots of features -->
+    <!--<bootstrap for navigation bar; lots of features -->
+    <%= render(partial: "layouts/navbar") %>
     <div id="site-container" class="flexbox vertical stretch flex-1"> 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">    
-        <div class="navbox">
-          <a class="navbox-brand" href="/">
-            <%= image_tag('Hydrabikes.png', alt: 'ValetBike') %>
-          </a>
-        </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <!-- toggle ability for responsive site -->
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse flexbox horizontal justify-space-between" id="navbarSupportedContent">
-          <div>
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <%= link_to "Home", home_path, class: "nav-link"%>
-              </li>
-
-              <li class="nav-item">
-                <%= link_to "About", "/about", class: "nav-link" %>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Rent</a>
-                <div class="dropdown-menu">
-                  <%= link_to "Find Stations", stations_url, class: "dropdown-item", method: :get %>
-                  <%= link_to "Memberships", "/memberships", class: "dropdown-item", method: :get %>
-                </div>
-              </li>
-
-            <li class="nav-item">
-              <%= link_to "Resources", "/help", class: "nav-link", method: :get %>
-            </li>
-  
-            </ul>
-          </div>
-
-          <div>
-            <ul class="navbar-nav mr-auto">
-              <% if user_signed_in? %>
-                <li class="nav-item">
-                  <div> Welcome <%= current_user.first_name %> </div>
-                  <%= button_to "Sign out", destroy_user_session_path, class: "nav-link", method: :delete %>
-                </li>
-              <% else %>
-                <li class="nav-item">
-                  <%= button_to "Sign in", new_user_session_path, class: "nav-link" %> 
-                </li>
-              <% end %>
-          </div>
-        </div>
-      </nav>
       <main>
         <div class="flexbox vertical center">
           <!-- Display notice or alert messages -->
