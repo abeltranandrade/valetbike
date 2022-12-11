@@ -68,6 +68,7 @@ group :development do
   gem "web-console"
   gem "rubocop", require: false
   gem "solargraph"
+  gem "letter_opener"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
