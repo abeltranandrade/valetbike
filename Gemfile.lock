@@ -128,6 +128,10 @@ GEM
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
+    launchy (2.5.0)
+      addressable (~> 2.7)
+    letter_opener (1.8.1)
+      launchy (>= 2.2, < 3)
     loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -311,6 +315,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jquery-rails
+  letter_opener
   mysql2 (~> 0.5)
   pay (~> 6.0.3)
   puma (~> 5.0)
