@@ -136,7 +136,8 @@ footer {
     font-size: 25px;
     left: 0;
     width: 100%;
-    position:absolute
+    position:relative;
+
 }
 
 footer a {

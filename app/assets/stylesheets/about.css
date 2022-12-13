@@ -215,24 +215,3 @@ url('affordable.jpg');
 
 
 
-/* reponsive */
-@media(max-width:991px){
-  .wrapper{
-    padding:25px;
-  }
-  .wrapper h1{
-    font-size: 2.5em;
-    font-weight: 600;
-  }
-  .content-box{
-    flex-direction: column;
-    width: 100%;
-  }
-  .card{
-    min-width: 300px;
-    margin:10px auto;
-  }
-}
-
-
-
